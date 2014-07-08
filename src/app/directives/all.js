@@ -8,5 +8,7 @@ define([
   './ngModelOnBlur',
   './tip',
   './confirmClick',
-  './esVersion'
+  './esVersion',
+  './configModal',
+  './resizable'
 ], function () {});

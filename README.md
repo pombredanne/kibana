@@ -14,11 +14,17 @@ setup and start using (seriously). Kibana strives to be easy to get started with
 flexible and powerful
 
 ### Requirements
+* Elasticsearch 0.90.9 or above
 * A modern web browser. The latest version of Chrome, Safari and Firefox have all been tested to
 work. IE9 and greater should work. IE8 does not.
 * A webserver. No extensions are required, as long as it can serve plain html it will work
 * A browser reachable Elasticsearch server. Port 9200 must be open, or a proxy configured to allow
 access to it.
+
+### Docs
+
+Documentation, panel options and tutorials can be found at 
+[http://www.elasticsearch.org/guide/en/kibana/current/](http://www.elasticsearch.org/guide/en/kibana/current/)
 
 ### Installation
 
@@ -39,6 +45,18 @@ to http://localhost:9200 unless your browser and elasticsearch are on the same m
 
 __Q__: How do I secure this? I don't want to leave 9200 open.  
 __A__: A simple nginx virtual host and proxy configuration can be found in the sample/nginx.conf
+
+__Q__: How to run the grunt build process.  
+__A__: Steps to follow 
+        a)Install node & npm 
+        b)npm install -g grunt-cli
+        c)npm install in kibana folder
+        d)grunt build
+        
+        Useful links:
+        	https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
+        	https://npmjs.org/doc/install.html
+        	http://www.ghosthorses.co.uk/production-diary/installing-grunt-on-os-x-and-windows-7/
 
 ### Support
 

@@ -714,9 +714,12 @@ angular.module('$strap.directives').directive('bsTabs', [
                 return;
               activeTab = newValue;
               setTimeout(function () {
-                var $next = $($tabs[0].querySelectorAll('li')[newValue * 1]);
-                if (!$next.hasClass('active')) {
-                  $next.children('a').tab('show');
+                // Check if we're still on the same tab before making the switch
+                if(activeTab === newValue) {
+                  var $next = $($tabs[0].querySelectorAll('li')[newValue * 1]);
+                  if (!$next.hasClass('active')) {
+                    $next.children('a').tab('show');
+                  }
                 }
               });
             });
@@ -769,7 +772,8 @@ angular.module('$strap.directives').directive('bsTimepicker', [
 angular.module('$strap.directives').directive('bsTooltip', [
   '$parse',
   '$compile',
-  function ($parse, $compile) {
+  '$sanitize',
+  function ($parse, $compile, $sanitize) {
     return {
       restrict: 'A',
       scope: true,
@@ -792,7 +796,7 @@ angular.module('$strap.directives').directive('bsTooltip', [
         }
         element.tooltip({
           title: function () {
-            return angular.isFunction(value) ? value.apply(null, arguments) : value;
+            return $sanitize(angular.isFunction(value) ? value.apply(null, arguments) : value);
           },
           html: true
         });
